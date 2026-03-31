@@ -2,7 +2,7 @@ name: PhantomRUN Launch
 
 on:
   schedule:
-    - cron: '0 0 1 4 *'
+    - cron: '0 0 1 4 *'  # 4/1 00:00 UTC
   workflow_dispatch:
 
 jobs:
@@ -105,7 +105,11 @@ jobs:
           PhantomRUN is the product name. ANT1NTER is the brand.
           Preferred notation: **PhantomRUN by ANT1NTER**
 
+          ANT1NTER is a software brand of Tsuchinoko Mfg. Co., Ltd., Osaka, Japan.
+
           PhantomRUN is a trademark of ANT1NTER, applied for registration in Japan (Class 7, 9, 42).
+
+          Core technology is the subject of Japanese Patent Application No. 2026-049329 (filed March 24, 2026). Filed by Tsuchinoko Mfg. Co., Ltd.
 
           ---
 
