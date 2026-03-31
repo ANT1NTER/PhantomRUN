@@ -87,6 +87,8 @@ jobs:
 
           If you use, modify, deploy, or redistribute this software or derivative works, you must preserve the same license terms and provide the corresponding source code as required by the AGPL-3.0. This includes use over a network.
 
+          **Note for in-house use:** If you use PhantomRUN solely within your own organization — without distributing it externally or exposing it as a network service to outside parties — the AGPL-3.0 source disclosure obligations do not practically apply. You are free to use and modify it internally without publishing your changes.
+
           Commercial licensing inquiries are welcome.
           Contact: phantomrun@ant1nter.com
 
