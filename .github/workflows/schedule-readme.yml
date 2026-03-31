@@ -1,0 +1,132 @@
+name: PhantomRUN Launch
+
+on:
+  schedule:
+    - cron: '0 0 1 4 *'
+  workflow_dispatch:
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Write README.md
+        run: |
+          cat > README.md << 'EOF'
+          # PhantomRUN by ANT1NTER
+
+          A preflight verification layer for machining environments.
+
+          ---
+
+          ## What is PhantomRUN
+
+          PhantomRUN is designed to inspect the gap between CAM assumptions and the real machine state before motion starts.
+
+          It checks machining conditions using real shop-floor information — work offsets, tool data, setup conditions, and machine-side parameters — before actual motion begins. The goal is simple: reduce the gap between CAM assumptions and the real machine state before execution.
+
+          This project is released by ANT1NTER, a software brand initiated by a small machining company in Osaka, Japan.
+
+          ---
+
+          ## Why PhantomRUN
+
+          Most machining simulation workflows depend on ideal upstream data.
+          Real production does not.
+
+          Offsets change. Tools are replaced. Fixtures move. Setup conditions drift. The machine is ready to run, but the digital assumptions are no longer perfectly aligned with reality.
+
+          PhantomRUN exists to inspect that last-mile gap before cutting starts.
+
+          ---
+
+          ## Scope
+
+          PhantomRUN is a preflight layer, not a real-time control system.
+          It focuses on verification before motion, not feedback control during motion.
+
+          **Possible inputs:**
+          - Work coordinate offsets
+          - Tool length and diameter data
+          - Fixture and setup information
+          - Machine-side measurement results
+          - NC-related execution context
+
+          **Possible outputs:**
+          - Interference risk judgment
+          - Preflight warnings
+          - Setup inconsistency detection
+          - Machine-ready verification status
+
+          ---
+
+          ## Project Status
+
+          This repository is currently at an early public stage.
+
+          The architecture, data flow, and implementation details will evolve over time. Initial releases may include concept notes, interface drafts, data models, reference scripts, and experimental components before a complete production-ready system is published.
+
+          ---
+
+          ## Philosophy
+
+          PhantomRUN is built from the perspective of real machining practice.
+
+          It is not a marketing simulation. It is not a decorative digital twin. It is not a promise of perfect automation.
+
+          It is a practical attempt to create a trustworthy preflight checkpoint between digital intent and physical execution.
+
+          ---
+
+          ## License
+
+          PhantomRUN is copyleft software.
+
+          Unless otherwise stated, this repository is licensed under the **GNU Affero General Public License version 3 (AGPL-3.0)**.
+
+          If you use, modify, deploy, or redistribute this software or derivative works, you must preserve the same license terms and provide the corresponding source code as required by the AGPL-3.0. This includes use over a network.
+
+          Commercial licensing inquiries are welcome.
+          Contact: phantomrun@ant1nter.com
+
+          See the LICENSE file for the full license text.
+
+          ---
+
+          ## Roadmap Direction
+
+          PhantomRUN is intended to begin as a preflight verification project and may later expand into a broader industrial software stack around setup intelligence, machine-side data interpretation, and manufacturing workflow infrastructure.
+
+          ---
+
+          ## Branding
+
+          PhantomRUN is the product name. ANT1NTER is the brand.
+          Preferred notation: **PhantomRUN by ANT1NTER**
+
+          PhantomRUN is a trademark of ANT1NTER, applied for registration in Japan (Class 7, 9, 42).
+
+          ---
+
+          ## Contact
+
+          For inquiries, collaboration, or early discussion:
+          phantomrun@ant1nter.com
+
+          ---
+
+          ## Origin
+
+          Released from Osaka, Japan.
+          April 1, 2026.
+          Not a joke.
+          EOF
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add README.md
+          git commit -m "feat: PhantomRUN released"
+          git push
